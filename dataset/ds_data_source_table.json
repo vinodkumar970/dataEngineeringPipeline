@@ -1,0 +1,38 @@
+{
+	"name": "ds_data_source_table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_incremental_load",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			},
+			{
+				"name": "amount",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "last_modified",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "data_source_table"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
