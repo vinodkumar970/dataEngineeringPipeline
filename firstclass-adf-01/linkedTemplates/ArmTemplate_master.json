@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "firstclass-adf-01"
+		},
+		"Ls_increment_load_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Ls_increment_load'"
+		},
+		"ls_1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_1'"
+		},
+		"ls_incremental_load_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_incremental_load'"
+		},
+		"ls_incremental_load_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "studentdetails.database.windows.net"
+		},
+		"ls_incremental_load_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "student_details"
+		},
+		"ls_incremental_load_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Vinod"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "firstclass-adf-01_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Ls_increment_load_connectionString": {
+						"value": "[parameters('Ls_increment_load_connectionString')]"
+					},
+					"ls_1_connectionString": {
+						"value": "[parameters('ls_1_connectionString')]"
+					},
+					"ls_incremental_load_password": {
+						"value": "[parameters('ls_incremental_load_password')]"
+					},
+					"ls_incremental_load_properties_typeProperties_server": {
+						"value": "[parameters('ls_incremental_load_properties_typeProperties_server')]"
+					},
+					"ls_incremental_load_properties_typeProperties_database": {
+						"value": "[parameters('ls_incremental_load_properties_typeProperties_database')]"
+					},
+					"ls_incremental_load_properties_typeProperties_userName": {
+						"value": "[parameters('ls_incremental_load_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

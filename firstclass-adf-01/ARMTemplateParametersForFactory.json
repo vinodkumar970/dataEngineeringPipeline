@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "firstclass-adf-01"
+		},
+		"Ls_increment_load_connectionString": {
+			"value": ""
+		},
+		"ls_1_connectionString": {
+			"value": ""
+		},
+		"ls_incremental_load_password": {
+			"value": ""
+		},
+		"ls_incremental_load_properties_typeProperties_server": {
+			"value": "studentdetails.database.windows.net"
+		},
+		"ls_incremental_load_properties_typeProperties_database": {
+			"value": "student_details"
+		},
+		"ls_incremental_load_properties_typeProperties_userName": {
+			"value": "Vinod"
+		}
+	}
+}
