@@ -1,0 +1,17 @@
+{
+	"name": "ds_scd_sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_Azuresql_scd",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "stgCustomer"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
