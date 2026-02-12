@@ -13,7 +13,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "ds_watermarktable",
+						"referenceName": "ds_data_source_table",
 						"type": "DatasetReference"
 					},
 					"name": "source2"
@@ -37,14 +37,16 @@
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> source1",
 				"source(output(",
-				"          TableName as string,",
-				"          WatermarkValue as timestamp",
+				"          id as integer,",
+				"          name as string,",
+				"          amount as decimal(10,2),",
+				"          last_modified as timestamp",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> source2",
-				"source1, source2 join(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"source1, source2 join(source1@id == WatermarkValue,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
