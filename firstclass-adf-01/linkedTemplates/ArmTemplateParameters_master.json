@@ -5,14 +5,35 @@
 		"factoryName": {
 			"value": "firstclass-adf-01"
 		},
+		"Ls_Azure_Databricks_accessToken": {
+			"value": ""
+		},
 		"Ls_increment_load_connectionString": {
 			"value": ""
 		},
 		"ls_1_connectionString": {
 			"value": ""
 		},
+		"ls_Azuresql_scd_password": {
+			"value": ""
+		},
 		"ls_incremental_load_password": {
 			"value": ""
+		},
+		"ls_scd_blob_connectionString": {
+			"value": ""
+		},
+		"Ls_Azure_Databricks_properties_typeProperties_existingClusterId": {
+			"value": "0210-123103-7sj9riqj"
+		},
+		"ls_Azuresql_scd_properties_typeProperties_server": {
+			"value": "studentdetails.database.windows.net"
+		},
+		"ls_Azuresql_scd_properties_typeProperties_database": {
+			"value": "student_details"
+		},
+		"ls_Azuresql_scd_properties_typeProperties_userName": {
+			"value": "Vinod"
 		},
 		"ls_incremental_load_properties_typeProperties_server": {
 			"value": "studentdetails.database.windows.net"
