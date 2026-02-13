@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Set variable1",
+				"name": "concat demo",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"policy": {
@@ -15,6 +15,23 @@
 					"variableName": "result",
 					"value": {
 						"value": "@concat('vinod',' ','kumar',' ','katta')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "substring",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@substring('vinodkumar',0,2)",
 						"type": "Expression"
 					}
 				}
