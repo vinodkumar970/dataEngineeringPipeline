@@ -182,7 +182,7 @@
 				"typeProperties": {
 					"variableName": "result",
 					"value": {
-						"value": "@string(rand())",
+						"value": "@string(rand(0,100))",
 						"type": "Expression"
 					}
 				}
