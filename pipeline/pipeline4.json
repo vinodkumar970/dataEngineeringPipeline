@@ -1,0 +1,30 @@
+{
+	"name": "pipeline4",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@concat('vinod',' ','kumar',' ','katta')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"result": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
