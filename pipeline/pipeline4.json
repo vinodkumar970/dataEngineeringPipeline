@@ -22,7 +22,14 @@
 			{
 				"name": "substring",
 				"type": "SetVariable",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "concat demo",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"secureOutput": false,
 					"secureInput": false
@@ -32,6 +39,150 @@
 					"variableName": "result",
 					"value": {
 						"value": "@substring('vinodkumar',0,2)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "to_lower",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "substring",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@toLower('VINOD KUMAR')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "to_upper",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "to_lower",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@toUpper('vinod kumar')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "replace",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "to_upper",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@replace('vinod kumar','kumar','reddy')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "length",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "replace",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(length('vinod kumar'))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "trim",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "length",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@trim('   vinod kumar   ')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "contains",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "trim",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(contains('vinod kumar','kumar'))",
 						"type": "Expression"
 					}
 				}
