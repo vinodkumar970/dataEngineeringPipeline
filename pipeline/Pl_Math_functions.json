@@ -1,0 +1,198 @@
+{
+	"name": "Pl_Math_functions",
+	"properties": {
+		"activities": [
+			{
+				"name": "add",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(add(10,5))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "sub",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "add",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(sub(10,5))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "mul",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "sub",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(mul(10,5))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "div",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "mul",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(div(10,5))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "mod",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "div",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(mod(10,3))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "max",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "mod",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(max(15,25))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "min",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "max",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(min(15,25))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "rand",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "min",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(rand())",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"result": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
