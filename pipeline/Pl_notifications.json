@@ -130,7 +130,7 @@
 						{
 							"type": "Query",
 							"text": {
-								"value": "insert into Pipeline_Run_History values (\n    '@{pipeline().Pipeline}',\n    '@{pipeline().RunId}',\n    '@{pipeline().TriggerTime}',\n    '@{pipeline().TriggerType}',\n    datediff(second, @{variables('starttime')}, @{variables('endtime')})\n)\n\n\n",
+								"value": "insert into Pipeline_Run_History\nvalues (\n    '@{pipeline().Pipeline}',\n    '@{pipeline().RunId}',\n    '@{pipeline().TriggerTime}',\n    '@{pipeline().TriggerType}',\n    @{div(sub(ticks(variables('endtime')), ticks(variables('starttime'))),10000000)}\n)\n\n\n\n",
 								"type": "Expression"
 							}
 						}
