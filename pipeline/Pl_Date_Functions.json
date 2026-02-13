@@ -110,7 +110,7 @@
 				"typeProperties": {
 					"variableName": "result",
 					"value": {
-						"value": "@string(year(utcNow()))",
+						"value": "@formatDateTime(utcNow(),'yyyy')\n",
 						"type": "Expression"
 					}
 				}
@@ -134,7 +134,7 @@
 				"typeProperties": {
 					"variableName": "result",
 					"value": {
-						"value": "@string(month(utcNow()))",
+						"value": "@formatDateTime(utcNow(),'mm')\n",
 						"type": "Expression"
 					}
 				}
