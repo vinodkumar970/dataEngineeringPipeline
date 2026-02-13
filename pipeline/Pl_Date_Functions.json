@@ -1,0 +1,222 @@
+{
+	"name": "Pl_Date_Functions",
+	"properties": {
+		"activities": [
+			{
+				"name": "current_time",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@utcNow()",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "add_days",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "current_time",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@addDays(utcNow(), 5)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "add_hours",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "add_days",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@addHours(utcNow(), 2)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "format_date",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "add_hours",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@formatDateTime(utcNow(),'yyyy-MM-dd HH:mm:ss')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "year",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "format_date",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(year(utcNow()))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "month",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "year",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(month(utcNow()))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "day_of_month",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "month",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(dayOfMonth(utcNow()))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "day_of_week",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "day_of_month",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(dayOfWeek(utcNow()))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "ticks",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "day_of_week",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@string(ticks(utcNow()))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"result": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
